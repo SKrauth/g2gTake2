@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-cloak>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,13 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- setup for ng-cloak, to hide javascript operators -->
+  <style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+      display: none;
+    }
+  </style>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -18,7 +25,10 @@
   <![endif]-->
 </head>
 <body>
-  <div class="container">
+  <div class="container" ng-controller="gotToGo">
+
+    <ng-include src="header()"></ng-include>
+
     <div class="jumbotron">
       <h1>Landing</h1>
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
@@ -27,7 +37,17 @@
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+
+  <!-- Angularjs cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+  <!-- ngRoute cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+  <!-- AppJS -->
+  <script src="js/app.js"></script>
 </body>
 </html>
