@@ -36,9 +36,10 @@
     <!-- switch statement to control nav, might make for poor navigation, but keeps the code dry and maintainable which keeps things simple. -->
     <div ng-switch on="currentPage">
        <div ng-switch-when="Home"><ng-include src="home()"></ng-include></div>
-       <div ng-switch-when="Focus"><ng-include src="focus()"></ng-include></div>
        <div ng-switch-when="Form"><ng-include src="ratingForm()"></ng-include></div>
        <div ng-switch-when="List"><ng-include src="list()"></ng-include></div>
+       <div ng-switch-when="Filter"><ng-include src="filter()"></ng-include></div>
+       <div ng-switch-when="Focus"><ng-include src="focus()"></ng-include></div>
        <div ng-switch-default><ng-include src="home()"></ng-include></div>
      </div>
   </div>

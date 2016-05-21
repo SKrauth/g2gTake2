@@ -22,6 +22,10 @@ app.controller('gotToGo', function($scope) {
     return "../html/pages/_ratingForm.html"
   };
 
+  $scope.filter = function(){
+    return "../html/pages/_filter.html"
+  };
+
   // creates and manages currentPage variable to control switch statement based nav
   $scope.currentPage = "home";
 
