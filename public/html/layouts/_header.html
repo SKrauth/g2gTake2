@@ -1,20 +1,18 @@
 <header>
-  <nav class="navbar navbar-fluid">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/focus">Focus</a>
-        </li>
-        <li>
-          <a href="/list">List</a>
-        </li>
-        <li>
-          <a href="/form">Form</a>
-        </li>
-      </ul>
+      <!-- needs some style repairs to become functional -->
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img class="img-fluid pull-xs-left" alt="Brand" src="../../images/gtgLogo.png">
+        </a>
+      </div> -->
+      <form class="navbar-form">
+        <button class="btn btn-default" ng-click="navLinks('Home')">Home</button>
+        <button class="btn btn-default" ng-click="navLinks('Focus')">Focus</button>
+        <button class="btn btn-default" ng-click="navLinks('List')">List</button>
+        <button class="btn btn-default" ng-click="navLinks('Form')">Form</button>
+      </form>
     </div>
   </nav>
 </header>

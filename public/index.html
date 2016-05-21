@@ -27,12 +27,17 @@
 <body>
   <div class="container" ng-controller="gotToGo">
 
+    <!-- inserts navbar into page -->
     <ng-include src="header()"></ng-include>
 
-    <div class="jumbotron">
-      <h1>Landing</h1>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-    </div>
+    <!-- switch statement to control nav, might make for poor navigation, but keeps the code dry and maintainable which keeps things simple. -->
+    <div ng-switch on="currentPage">
+       <div ng-switch-when="Home"><ng-include src="home()"></ng-include></div>
+       <div ng-switch-when="Focus"><ng-include src="focus()"></ng-include></div>
+       <div ng-switch-when="Form"><ng-include src="ratingForm()"></ng-include></div>
+       <div ng-switch-when="List"><ng-include src="list()"></ng-include></div>
+       <div ng-switch-default><ng-include src="home()"></ng-include></div>
+     </div>
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
