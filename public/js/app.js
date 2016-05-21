@@ -2,8 +2,6 @@ var app = angular.module('app', ['ngRoute']);
 
 app.controller('gotToGo', function($scope) {
   // Lots of code to control navigation.
-  $scope.currentPage = "home";
-
   $scope.header = function(){
     return "../html/layouts/_header.html";
   };
@@ -24,9 +22,10 @@ app.controller('gotToGo', function($scope) {
     return "../html/pages/_ratingForm.html"
   };
 
+  // creates and manages currentPage variable to control switch statement based nav
+  $scope.currentPage = "home";
+
   $scope.navLinks = function(newPage){
     $scope.currentPage = newPage;
-
-    console.log($scope.currentPage);
   };
 });

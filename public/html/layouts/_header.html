@@ -2,17 +2,18 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- needs some style repairs to become functional -->
-      <!-- <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-          <img class="img-fluid pull-xs-left" alt="Brand" src="../../images/gtgLogo.png">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-logo" href="/" ng-click="navLinks('Home')">
+          <img class="img-fluid logo-thumbnail" alt="Brand" src="../../images/gtgLogo.png">
         </a>
-      </div> -->
-      <form class="navbar-form">
-        <button class="btn btn-default" ng-click="navLinks('Home')">Home</button>
-        <button class="btn btn-default" ng-click="navLinks('Focus')">Focus</button>
-        <button class="btn btn-default" ng-click="navLinks('List')">List</button>
-        <button class="btn btn-default" ng-click="navLinks('Form')">Form</button>
-      </form>
+        <a href="/" class="navbar-brand" ng-click="navLinks('Home')">Got-To-Go</a>
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Home')">Home</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Focus')">Focus</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('List')">List</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Form')">Form</button>
+      </div>
     </div>
   </nav>
 </header>

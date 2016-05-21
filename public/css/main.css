@@ -1,6 +1,7 @@
-.nav-btn {
-  background-color: red;
-  border-style: solid;
-  border-width: medium;
-  border-color: black;
+.logo-thumbnail {
+  height: inherit;
+}
+
+.navbar-logo {
+  padding: 0px 15px;
 }
