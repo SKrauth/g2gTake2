@@ -1,5 +1,39 @@
 <filter>
-  <div class="jumbotron">
-    <h1>Filter</h1>
-  </div>
+  <form class="form-horizontal">
+    <fieldset>
+      <legend class="text-center">Filter</legend>
+      <div class="form-group">
+          <label class="col-lg-4 control-label">Gender</label>
+          <div class="col-lg-8">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderMale" id="genderMale" value="male">Male
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderFemale" id="genderFemale" value="female">Female
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderUnisex" id="genderUnisex" value="unisex">Unisex
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderFamily" id="genderFamily" value="family">Family
+            </label>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-lg-4 control-label">Rank by: <br> (need to figure out how to make this some sort of drag/drop ordered list)</label>
+          <div class="col-lg-8">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderMale" id="genderMale" value="male">Sanitation
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderFemale" id="genderFemale" value="female">Toiletries
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="genderUnisex" id="genderUnisex" value="unisex">Overall
+            </label>
+          </div>
+      </div>
+      <div><p class="text-center">Geolocation Range Limit? Filter by extra details?</p></div>
+    </fieldset>
+  </form>
 </filter>

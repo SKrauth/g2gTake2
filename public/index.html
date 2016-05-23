@@ -40,8 +40,12 @@
        <div ng-switch-when="List"><ng-include src="list()"></ng-include></div>
        <div ng-switch-when="Filter"><ng-include src="filter()"></ng-include></div>
        <div ng-switch-when="Focus"><ng-include src="focus()"></ng-include></div>
+       <div ng-switch-when="About"><ng-include src="about()"></ng-include></div>
        <div ng-switch-default><ng-include src="home()"></ng-include></div>
      </div>
+
+    <ng-include src="footer()"></ng-include>
+
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

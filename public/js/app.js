@@ -26,6 +26,14 @@ app.controller('gotToGo', function($scope) {
     return "../html/pages/_filter.html";
   };
 
+  $scope.about = function(){
+    return "../html/pages/_about.html";
+  };
+
+  $scope.footer = function(){
+    return "../html/layouts/_footer.html";
+  };
+
   // creates and manages currentPage variable to control switch statement based nav
   $scope.currentPage = "home";
 
