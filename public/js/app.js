@@ -7,23 +7,23 @@ app.controller('gotToGo', function($scope) {
   };
 
   $scope.home = function(){
-    return "../html/pages/_home.html"
-  }
+    return "../html/pages/_home.html";
+  };
 
   $scope.focus = function(){
-    return "../html/pages/_focus.html"
+    return "../html/pages/_focus.html";
   };
 
   $scope.list = function(){
-    return "../html/pages/_list.html"
+    return "../html/pages/_list.html";
   };
 
   $scope.ratingForm = function(){
-    return "../html/pages/_ratingForm.html"
+    return "../html/pages/_ratingForm.html";
   };
 
   $scope.filter = function(){
-    return "../html/pages/_filter.html"
+    return "../html/pages/_filter.html";
   };
 
   // creates and manages currentPage variable to control switch statement based nav
@@ -32,4 +32,13 @@ app.controller('gotToGo', function($scope) {
   $scope.navLinks = function(newPage){
     $scope.currentPage = newPage;
   };
+
+  $scope.rating = {
+    clean: 5,
+    capacity: 5,
+    overAll: 5,
+    extraInfo: false
+  };
+
+  console.log($scope.rating);
 });
