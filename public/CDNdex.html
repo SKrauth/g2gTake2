@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-cloak>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Got-To-Go</title>
+
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- setup for ng-cloak, to hide javascript operators -->
+  <style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+      display: none;
+    }
+  </style>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container" ng-controller="gotToGo">
+
+    <!-- inserts navbar into page -->
+    <ng-include src="header()"></ng-include>
+
+    <!-- switch statement to control nav, might make for poor navigation, but keeps the code dry and maintainable which keeps things simple. -->
+    <div ng-switch on="currentPage">
+       <div ng-switch-when="Home"><ng-include src="home()"></ng-include></div>
+       <div ng-switch-when="Form"><ng-include src="ratingForm()"></ng-include></div>
+       <div ng-switch-when="List"><ng-include src="list()"></ng-include></div>
+       <div ng-switch-when="Filter"><ng-include src="filter()"></ng-include></div>
+       <div ng-switch-when="Focus"><ng-include src="focus()"></ng-include></div>
+       <div ng-switch-when="About"><ng-include src="about()"></ng-include></div>
+       <div ng-switch-default><ng-include src="home()"></ng-include></div>
+     </div>
+
+    <ng-include src="footer()"></ng-include>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Angularjs cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+  <!-- ngRoute cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+  <!-- AppJS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
