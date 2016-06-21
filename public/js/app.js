@@ -40,7 +40,9 @@ app.controller('gotToGo', function($scope) {
   $scope.navLinks = function(newPage){
     $scope.currentPage = newPage;
   };
+});
 
+app.controller('formCtrl', function($scope){
   $scope.rating = {
     clean: 5,
     capacity: 5,
