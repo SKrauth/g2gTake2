@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngRoute']);
 
-app.controller('gotToGo', function($scope) {
+app.controller('gotToGo', function($scope, $http) {
   // Lots of code to control navigation.
   $scope.header = function(){
     return "html/layouts/_header.html";
@@ -36,20 +36,19 @@ app.controller('gotToGo', function($scope) {
 
   // creates and manages currentPage variable to control switch statement based nav
   $scope.currentPage = "home";
+  $scope.extraInfo = false;
 
   $scope.navLinks = function(newPage){
     $scope.currentPage = newPage;
   };
-});
-
-app.controller('formCtrl', function($scope){
-  $scope.rating = {
-    name: "",
-    clean: 5,
-    capacity: 5,
-    overAll: 5,
-    extraInfo: false
+  
+  // php/mysql controller stuff. Might be nice to seperate from main controller.
+  getRating();
+  function getRating(){
+    $http.post("getRating.php").success(function(data){
+      $scope.rating = data;
+    });
   };
-
-  console.log($scope.rating);
+  
+  console.log($scope);
 });
