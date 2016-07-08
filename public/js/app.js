@@ -43,11 +43,14 @@ app.controller('gotToGo', function($scope, $http) {
   };
   
   // php/mysql controller stuff. Might be nice to seperate from main controller.
-  getRating();
-  function getRating(){
-    $http.post("getRating.php").success(function(data){
-      $scope.rating = data;
+  getRatings();
+  function getRatings(){
+    $http.post("getRatings.php").success(function(data){
+      $scope.ratings = data;
     });
+  };
+  $scope.addRating = function(rating){
+    
   };
   
   console.log($scope);

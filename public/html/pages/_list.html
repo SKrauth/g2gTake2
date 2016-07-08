@@ -1,5 +1,8 @@
 <list>
   <div class="jumbotron">
     <h1>List</h1>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="rating in ratings">#{{rating.ID}}, {{rating.NAME}} has a overall rating of {{rating.OVERALL}}</li>
+    </ul>
   </div>
 </list>
