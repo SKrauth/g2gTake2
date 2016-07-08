@@ -1,21 +1,18 @@
 <?php
-    // A simple PHP script demonstrating how to connect to MySQL.
-    // Press the 'Run' button on the top to start the web server,
-    // then click the URL that is emitted to the Output tab of the console.
+    $host = "127.0.0.1";
+    $user = "rthawk990";
+    $pass = "";
+    $db = "sample_db";
+    $port = 3306;
+    
+    $connection = mysqli_connect($host, $user, $pass, $db, $port)or die(mysql_error());
 
-    $servername = getenv(process.env.IP);
-    $username = getenv('rthawk990');
-    $password = "";
-    $database = "c9";
-    $dbport = 3306;
+    //And now to perform a simple query to make sure it's working
+    $query = "SELECT * FROM ratings";
+    $result = mysqli_query($connection, $query);
 
-    // Create connection
-    $db = new mysqli($servername, $username, $password, $database, $dbport);
-
-    // Check connection
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-    } 
-    echo "Connected successfully (".$db->host_info.")";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo $row['name'] . " has an overall rating of: " . $row['overall']/2 . "\r\n";
+    }
     
 ?>

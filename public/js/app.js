@@ -44,6 +44,7 @@ app.controller('gotToGo', function($scope) {
 
 app.controller('formCtrl', function($scope){
   $scope.rating = {
+    name: "",
     clean: 5,
     capacity: 5,
     overAll: 5,
