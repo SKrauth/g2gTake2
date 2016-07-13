@@ -1,5 +1,9 @@
 <focus>
-  <div class="jumbotron">
+  <div class="jumbotron" ng-if="!currentRating[0]">
+    <h1>No current data</h1>
+    <p>Please go to the find page and select a rating to look at</p>
+  </div>
+  <div class="jumbotron" ng-if="currentRating[0]">
     <h1>{{currentRating[0].NAME}}</h1>
     <ul class="list-group">
       <li class="list-group-item">Overall: {{currentRating[0].OVERALL}}</li>
