@@ -1,6 +1,7 @@
 <?php 
     require_once 'connect.php';
-    $query="select ID, NAME, OVERALL from ratings order by name,id desc";
+    $nextID = $_GET['nextID'];
+    $query="select ID, NAME, TOILETRIES, SANITATION, OVERALL, GENDER, ADDRESS, DESCRIPTION, CREATED_AT from ratings where ID='$nextID' order by name,id desc";
     $result = mysqli_query($connection, $query);
 
     $arr = array();

@@ -34,7 +34,7 @@ app.controller('gotToGo', function($scope, $http) {
     return "html/layouts/_footer.html";
   };
 
-  // creates and manages currentPage variable to control switch statement based nav
+  // defualt set up variables for page load
   $scope.currentPage = "home";
   $scope.extraInfo = false;
 
@@ -49,18 +49,19 @@ app.controller('gotToGo', function($scope, $http) {
       $scope.ratings = data;
     });
   };
+  
   $scope.addRating = function(rating){
-    console.log(rating);
-    // $http({ method: "POST", url: "addRating.php", data: rating, cache: false }).success(function(data){
-    //   getRatings();
-    //   $scope.rating = "";
-    // });
-    
-    $http.post("addRating.php", rating).success(function(data){
+    $http.post("addRating.php?rating="+rating+"&name="+rating.name+"&sanitation="+rating.sanitation+"&toiletries="+rating.toiletries+"&overall="+rating.overall+"&gender="+rating.gender+"&address="+rating.address+"&description="+rating.description).success(function(data){
       getRatings();
-      $scope.rating = "";
+      $scope.rating = {};
     });
   };
   
+  
+  $scope.getByID = function(nextID){
+    $http.post("getByID.php?nextID="+nextID).success(function(data){
+      $scope.currentRating = data;
+    });
+  };
   console.log($scope);
 });
