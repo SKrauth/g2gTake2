@@ -50,7 +50,16 @@ app.controller('gotToGo', function($scope, $http) {
     });
   };
   $scope.addRating = function(rating){
+    console.log(rating);
+    // $http({ method: "POST", url: "addRating.php", data: rating, cache: false }).success(function(data){
+    //   getRatings();
+    //   $scope.rating = "";
+    // });
     
+    $http.post("addRating.php", rating).success(function(data){
+      getRatings();
+      $scope.rating = "";
+    });
   };
   
   console.log($scope);
