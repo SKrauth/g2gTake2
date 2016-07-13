@@ -1,6 +1,12 @@
 <focus>
   <div class="jumbotron">
     <h1>{{currentRating[0].NAME}}</h1>
-    <p>currentRating = {{currentRating}}</p>
+    <ul class="list-group">
+      <li class="list-group-item">Overall: {{currentRating[0].OVERALL}}</li>
+      <li class="list-group-item">Toiletries: {{currentRating[0].TOILETRIES}}</li>
+      <li class="list-group-item">Sanitation: {{currentRating[0].SANITATION}}</li>
+    </ul>
+    <p>{{currentRating[0].NAME}} is located at {{currentRating[0].ADDRESS}}</p>
+    <p>Extra Info: {{currentRating[0].DESCRIPTION}}</p>
   </div>
 </focus>

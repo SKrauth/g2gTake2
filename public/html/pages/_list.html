@@ -1,8 +1,7 @@
 <list>
   <div class="jumbotron">
-    <h1>List</h1>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="rating in ratings" ng-click="getByID(rating.ID); navLinks('Focus');">#{{rating.ID}}, {{rating.NAME}} has a overall rating of {{rating.OVERALL}}</li>
+      <a style="text-decoration: none"><li class="list-group-item" ng-repeat="rating in ratings" ng-click="getByID(rating.ID); navLinks('Focus');">{{rating.NAME}} has a overall rating of {{rating.OVERALL}}</li></a>
     </ul>
   </div>
 </list>
