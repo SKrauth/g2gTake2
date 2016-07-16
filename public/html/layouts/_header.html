@@ -10,8 +10,10 @@
       </div>
       <div class="pull-right">
         <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Form')">Rate</button>
-        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('List')">Find</button>
-        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Focus')">Focus</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('List')" ng-if="!admin">Find</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Focus')" ng-if="!admin">Focus</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('adminList')" ng-if="admin">Admin Find</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('adminFocus')" ng-if="admin">Admin Focus</button>
         <button type="button" class="btn btn-default navbar-btn" ng-click="navLinks('Filter')">Settings</button>
       </div>
     </div>

@@ -1,0 +1,17 @@
+<focus>
+  <h3>Admin Focus</h3>
+  <div class="jumbotron" ng-if="!currentRating[0]">
+    <h1>No current data</h1>
+    <p>Please go to the find page and select a rating to look at</p>
+  </div>
+  <div class="jumbotron" ng-if="currentRating[0]">
+    <h1>{{currentRating[0].NAME}}</h1>
+    <ul class="list-group">
+      <li class="list-group-item">Overall: {{currentRating[0].OVERALL}}</li>
+      <li class="list-group-item">Toiletries: {{currentRating[0].TOILETRIES}}</li>
+      <li class="list-group-item">Sanitation: {{currentRating[0].SANITATION}}</li>
+    </ul>
+    <p>{{currentRating[0].NAME}} is located at {{currentRating[0].ADDRESS}}</p>
+    <p>Extra Info: {{currentRating[0].DESCRIPTION}}</p>
+  </div>
+</focus>

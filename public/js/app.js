@@ -1,6 +1,15 @@
 var app = angular.module('app', ['ngRoute']);
 
 app.controller('gotToGo', function($scope, $http) {
+  // defualt set up variables for page load
+  $scope.currentPage = "home";
+  $scope.extraInfo = false;
+  $scope.admin = true;
+
+  $scope.navLinks = function(newPage){
+    $scope.currentPage = newPage;
+  };
+  
   // Lots of code to control navigation.
   $scope.header = function(){
     return "html/layouts/_header.html";
@@ -29,17 +38,17 @@ app.controller('gotToGo', function($scope, $http) {
   $scope.about = function(){
     return "html/pages/_about.html";
   };
+  
+  $scope.adminFocus = function(){
+    return "html/admin/_adminFocus.html";
+  };
+
+  $scope.adminList = function(){
+    return "html/admin/_adminList.html";
+  };
 
   $scope.footer = function(){
     return "html/layouts/_footer.html";
-  };
-
-  // defualt set up variables for page load
-  $scope.currentPage = "home";
-  $scope.extraInfo = false;
-
-  $scope.navLinks = function(newPage){
-    $scope.currentPage = newPage;
   };
   
   // php/mysql controller stuff. Might be nice to seperate from main controller.
