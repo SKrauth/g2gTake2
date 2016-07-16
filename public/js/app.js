@@ -72,5 +72,16 @@ app.controller('gotToGo', function($scope, $http) {
       $scope.currentRating = data;
     });
   };
+  
+  
+  
+  $scope.deleteRating = function (ratingID) {
+    if(confirm("Are you sure to delete this rating?")){
+    $http.post("deleteRating.php?ratingID="+ratingID).success(function(data){
+        getRatings();
+      });
+    }
+  };
+  
   console.log($scope);
 });
