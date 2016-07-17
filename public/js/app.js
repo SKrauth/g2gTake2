@@ -1,6 +1,15 @@
 var app = angular.module('app', ['ngRoute']);
 
-app.controller('gotToGo', function($scope) {
+app.controller('gotToGo', function($scope, $http) {
+  // defualt set up variables for page load
+  $scope.currentPage = "home";
+  $scope.extraInfo = false;
+  $scope.admin = true;
+
+  $scope.navLinks = function(newPage){
+    $scope.currentPage = newPage;
+  };
+  
   // Lots of code to control navigation.
   $scope.header = function(){
     return "html/layouts/_header.html";
@@ -29,26 +38,56 @@ app.controller('gotToGo', function($scope) {
   $scope.about = function(){
     return "html/pages/_about.html";
   };
+  
+  $scope.adminFocus = function(){
+    return "html/admin/_adminFocus.html";
+  };
+
+  $scope.adminList = function(){
+    return "html/admin/_adminList.html";
+  };
 
   $scope.footer = function(){
     return "html/layouts/_footer.html";
   };
-
-  // creates and manages currentPage variable to control switch statement based nav
-  $scope.currentPage = "home";
-
-  $scope.navLinks = function(newPage){
-    $scope.currentPage = newPage;
+  
+  // php/mysql controller stuff. Might be nice to seperate from main controller.
+  getRatings();
+  function getRatings(){
+    $http.post("getRatings.php").success(function(data){
+      $scope.ratings = data;
+    });
   };
-});
-
-app.controller('formCtrl', function($scope){
-  $scope.rating = {
-    clean: 5,
-    capacity: 5,
-    overAll: 5,
-    extraInfo: false
+  
+  $scope.addRating = function(rating){
+    $http.post("addRating.php?rating="+rating+"&name="+rating.name+"&sanitation="+rating.sanitation+"&toiletries="+rating.toiletries+"&overall="+rating.overall+"&gender="+rating.gender+"&address="+rating.address+"&description="+rating.description).success(function(data){
+      getRatings();
+      $scope.rating = {};
+    });
   };
-
-  console.log($scope.rating);
+  
+  
+  $scope.getByID = function(nextID){
+    $http.post("getByID.php?nextID="+nextID).success(function(data){
+      $scope.currentRating = data;
+    });
+  };
+  
+  $scope.updateRating = function (rating){
+    $http.post("addRating.php?ratingID="+rating.ID+"&name="+rating.NAME+"&sanitation="+rating.SANITATION+"&toiletries="+rating.TOILETRIES+"&overall="+rating.OVERALL+"&gender="+rating.GENDER+"&address="+rating.ADDRESS+"&description="+rating.DESCRIPTION).success(function(data){
+      getRatings();
+      $scope.currentRating = [];
+      $scope.navLinks('adminList');
+    });
+  };
+  
+  $scope.deleteRating = function (ratingID) {
+    if(confirm("Are you sure to delete this rating?")){
+    $http.post("deleteRating.php?ratingID="+ratingID).success(function(data){
+        getRatings();
+      });
+    }
+  };
+  
+  console.log($scope);
 });

@@ -26,10 +26,6 @@ app.get("/cdn", function(req, res){
   res.sendFile(__dirname+"/public/CDNdex.html");
 })
 
-app.get("/php", function(req, res){
-  res.sendFile(__dirname+"/public/php/sampleData.php")
-})
-
 var server = app.listen(8080, function () {
   var host = server.address().address;
   var port = server.address().port;

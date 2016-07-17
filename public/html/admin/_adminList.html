@@ -1,0 +1,14 @@
+<list>
+  <h3>Admin List</h3>
+  <div class="jumbotron">
+    <ul class="list-group">
+      <a style="text-decoration: none">
+        <li class="list-group-item" ng-repeat="rating in ratings">
+          {{rating.NAME}} has a overall rating of {{rating.OVERALL}}
+          <button type="button" class="btn btn-warning pull-right" ng-click="getByID(rating.ID); navLinks('adminFocus');">Update</button>
+          <button type="button" class="btn btn-danger pull-right" ng-click="deleteRating(rating.ID)">Delete</button>
+        </li>
+      </a>
+    </ul>
+  </div>
+</list>
