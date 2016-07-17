@@ -73,7 +73,13 @@ app.controller('gotToGo', function($scope, $http) {
     });
   };
   
-  
+  $scope.updateRating = function (rating){
+    $http.post("addRating.php?ratingID="+rating.ID+"&name="+rating.NAME+"&sanitation="+rating.SANITATION+"&toiletries="+rating.TOILETRIES+"&overall="+rating.OVERALL+"&gender="+rating.GENDER+"&address="+rating.ADDRESS+"&description="+rating.DESCRIPTION).success(function(data){
+      getRatings();
+      $scope.currentRating = [];
+      $scope.navLinks('adminList');
+    });
+  };
   
   $scope.deleteRating = function (ratingID) {
     if(confirm("Are you sure to delete this rating?")){
