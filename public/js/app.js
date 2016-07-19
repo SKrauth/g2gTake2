@@ -4,10 +4,14 @@ app.controller('gotToGo', function($scope, $http) {
   // defualt set up variables for page load
   $scope.currentPage = "home";
   $scope.extraInfo = false;
-  $scope.admin = true;
+  $scope.admin = false;
 
   $scope.navLinks = function(newPage){
     $scope.currentPage = newPage;
+  };
+  
+  $scope.login = function(v){
+    $scope.admin = v;
   };
   
   // Lots of code to control navigation.
@@ -74,6 +78,8 @@ app.controller('gotToGo', function($scope, $http) {
   };
   
   $scope.updateRating = function (rating){
+    console.log(rating);
+    console.log(rating.ID);
     $http.post("addRating.php?ratingID="+rating.ID+"&name="+rating.NAME+"&sanitation="+rating.SANITATION+"&toiletries="+rating.TOILETRIES+"&overall="+rating.OVERALL+"&gender="+rating.GENDER+"&address="+rating.ADDRESS+"&description="+rating.DESCRIPTION).success(function(data){
       getRatings();
       $scope.currentRating = [];

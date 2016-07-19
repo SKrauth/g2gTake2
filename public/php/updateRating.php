@@ -11,8 +11,8 @@
         $address = $_GET['address'];
         $description = $_GET['description'];
 
-        $query="UPDATE ratings set name='$name', sanitation='$sanitation', toiletries='$toiletries', overall='$overall', 
-            gender='$gender', address='$address', description='$description' where id='$ratingID'";
+        $query="UPDATE ratings SET name='$name', sanitation='$sanitation', toiletries='$toiletries', overall='$overall', 
+            gender='$gender', address='$address', description='$description' WHERE id='$ratingID'";
         
         $result = $connection->query($query) or die($connection->error.__LINE__);
  
