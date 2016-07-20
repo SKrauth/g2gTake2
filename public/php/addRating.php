@@ -10,6 +10,11 @@
         $address = $_GET['address'];
         $description = $_GET['description'];
         $created = time();
+        
+        //a little bit of SQL security, should run this on all string inputs
+        $name = $connection->real_escape_string($name);
+        $address = $connection->real_escape_string($address);
+        $description = $connection->real_escape_string($description);
  
         $query="INSERT INTO ratings (name,sanitation,toiletries,overall,gender,address,description,created_at)  
                 VALUES ('$name', '$sanitation', '$toiletries', '$overall', '$gender', '$address', '$description', '$created')";

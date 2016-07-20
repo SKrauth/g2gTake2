@@ -1,5 +1,7 @@
 <footer>
   <hr>
   Some footer stuff
+  <button class="btn btn-default pull-right" ng-click="login(true)" ng-if="!admin">Switch to Admin</button>
+  <button class="btn btn-default pull-right" ng-click="login(false)" ng-if="admin">Switch to User</button>
   <button class="btn btn-default pull-right" ng-click="navLinks('About')">Contact Me</button>
 </footer>
